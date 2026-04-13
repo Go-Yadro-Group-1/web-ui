@@ -57,7 +57,7 @@ th {
   margin: auto;
   border-collapse: collapse;
   border-spacing: 0;
-  background: #f3faf4;
+  background: #e8eef6;
   position: relative;
 }
 
@@ -144,7 +144,7 @@ button:disabled {
   display: table;
   border-collapse: collapse;
   border-spacing: 0;
-  background-color: #f3faf4;
+  background-color: #e8eef6;
   position: relative;
 }
 

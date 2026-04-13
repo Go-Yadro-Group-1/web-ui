@@ -1,14 +1,16 @@
 * {box-sizing: border-box;}
+html {
+  height: 100%;
+}
 body {
   margin: 0;
-  background: #8d7f7f;
+  background: #ffffff;
+  min-height: 100%;
 }
 header {
   background: white;
-  text-align: center;
 }
 header a {
-  display: block;
   text-decoration: none;
   outline: none;
   transition: .3s ease-in-out;
@@ -17,9 +19,25 @@ header a {
   color: #D5B45B;
   font-family: 'Playfair Display', serif;
   font-size: 3.3em;
-  padding: 20px 0;
+  padding: 20px 0 20px 25px;
   font-weight: 600;
   letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.university-name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  color: #001a4d;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
 }
 
 img {
@@ -28,22 +46,17 @@ img {
 }
 
 nav {
-  display: table;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-.topmenu_main:after {
-  content: "";
-  display: table;
-  clear: both;
+  display: inline-flex;
+  width: fit-content;
 }
 .topmenu_main > li {
-  width: 250px;
-  float: left;
   position: relative;
   font-family: 'Open Sans', sans-serif;
 }
@@ -52,10 +65,12 @@ nav ul {
   align-content: center;
   font-size: 16px;
   font-weight: bold;
-  color: #404040;
-  padding: 15px 30px;
+  color: #ffffff;
+  padding: 15px 40px;
+  display: inline-block;
+  white-space: nowrap;
 }
-.topmenu_main li a:hover {color: #eeeaea;}
+.topmenu_main li a:hover {color: #e0e0e0;}
 
 .submenu-link:after {
   content: '\f107';
@@ -102,5 +117,12 @@ nav ul {
 .rectangle {
   width: 100%;
   margin:auto;
-  background: #a6deb0;
+  background: #003da5;
+}
+
+.container {
+  padding: 5px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: auto;
 }

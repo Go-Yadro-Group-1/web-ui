@@ -1,5 +1,5 @@
 .compare-body {
-  margin-left: 12rem;
+  padding: 0 20px;
 }
 
 .header {
@@ -20,6 +20,11 @@
   left: 350px;
 }
 
+.icon img {
+  width: 120px;
+  height: auto;
+}
+
 img {
   width: 8%;
   height: 8%;
@@ -28,7 +33,7 @@ img {
 .btn {
   text-decoration: none;
   color: #fff;
-  background-color: #37b34a;
+  background-color: #004077;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: .2s ease-out;
@@ -55,9 +60,9 @@ img {
 }
 
 .btn:hover {
-  background: #5ec56d;
+  background: #154a8a;
 }
 
 .btn:active {
-  background: #8ade98;
+  background: #0d3566;
 }
