@@ -1,0 +1,25 @@
+.body_empty{
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.icon{
+  margin-top: 40px;
+}
+
+.icon img {
+  width: 120px;
+  height: auto;
+}
+
+img {
+  width: 8%;
+  height: 8%;
+}
+
+.header {
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}

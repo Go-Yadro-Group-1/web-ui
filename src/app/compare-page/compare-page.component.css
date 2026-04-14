@@ -1,0 +1,68 @@
+.compare-body {
+  padding: 0 20px;
+}
+
+.header {
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 1.2em;
+}
+
+.body_empty{
+  position: relative;
+  top: 200px;
+  left: 600px;
+}
+
+.icon{
+  position: relative;
+  bottom: 70px;
+  left: 350px;
+}
+
+.icon img {
+  width: 120px;
+  height: auto;
+}
+
+img {
+  width: 8%;
+  height: 8%;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fff;
+  background-color: #004077;
+  text-align: center;
+  letter-spacing: .5px;
+  -webkit-transition: .2s ease-out;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+
+.btn {
+  font-size: 1rem;
+  outline: 0;
+}
+
+.btn {
+  border: none;
+  border-radius: 2px;
+  display: inline-block;
+  height: 36px;
+  width: 150px;
+  line-height: 36px;
+  padding: 0 2rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:hover {
+  background: #154a8a;
+}
+
+.btn:active {
+  background: #0d3566;
+}

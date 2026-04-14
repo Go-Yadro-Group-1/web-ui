@@ -1,0 +1,29 @@
+<div class="home-content">
+  <div class="hero-section">
+    <h1>Jira Tracker</h1>
+    <p class="subtitle">Инструмент для аналитики Jira-проектов</p>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-card" (click)="navigateTo('/projects')">
+      <div class="icon">📊</div>
+      <h3>Проекты</h3>
+      <p>Добавляйте проекты из Jira и отслеживайте их</p>
+      <button class="feature-btn">Перейти</button>
+    </div>
+
+    <div class="feature-card" (click)="navigateTo('/compare')">
+      <div class="icon">⚖️</div>
+      <h3>Сравнение</h3>
+      <p>Сравнивайте проекты между собой и получайте сводные графики</p>
+      <button class="feature-btn">Перейти</button>
+    </div>
+
+    <div class="feature-card" (click)="navigateTo('/myprojects')">
+      <div class="icon">📈</div>
+      <h3>Мои проекты</h3>
+      <p>Смотрите статистику и аналитику по сохраненным проектам</p>
+      <button class="feature-btn">Перейти</button>
+    </div>
+  </div>
+</div>

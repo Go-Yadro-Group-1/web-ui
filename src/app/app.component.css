@@ -1,0 +1,128 @@
+* {box-sizing: border-box;}
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: #ffffff;
+  min-height: 100%;
+}
+header {
+  background: white;
+}
+header a {
+  text-decoration: none;
+  outline: none;
+  transition: .3s ease-in-out;
+}
+.logo {
+  color: #D5B45B;
+  font-family: 'Playfair Display', serif;
+  font-size: 3.3em;
+  padding: 20px 0 20px 25px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.university-name {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 28px;
+  color: #001a4d;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.logo img {
+  width: 120px;
+  height: auto;
+}
+
+img {
+  width: 20%;
+  height: 20%;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  width: fit-content;
+}
+.topmenu_main > li {
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+}
+.topmenu_main > li > a {
+  text-transform: uppercase;
+  align-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 15px 40px;
+  display: inline-block;
+  white-space: nowrap;
+}
+.topmenu_main li a:hover {color: #e0e0e0;}
+
+.submenu-link:after {
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands';
+  font-weight: 900;
+  color: inherit;
+  margin-left: 10px;
+}
+.submenu {
+  background: #273037;
+  position: absolute;
+  left: 30px;
+  top: 100%;
+  z-index: 5;
+  width: 180px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin :0 0;
+  transition: .5s ease-in-out;
+}
+.submenu a {
+  color: white;
+  text-align: left;
+  padding: 12px 15px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+.submenu a:hover{
+  background: #9d9a9a;
+}
+
+.submenu li:last-child a {border-bottom: none;}
+.topmenu_main > li:hover .submenu {
+  opacity: 1;
+  transform: scaleY(1);
+}
+.test
+{
+  color:blueviolet;
+  background-color: #D5B45B;
+}
+
+.rectangle {
+  width: 100%;
+  margin:auto;
+  background: #003da5;
+}
+
+.container {
+  padding: 5px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: auto;
+}
