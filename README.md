@@ -8,7 +8,7 @@ Go to the directory jira_analyzer/web/
 
   * ```npm install```
 
-  * ```ng serve```
+  * ```npm start```
 >Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/
 
 ## Prerequisites
