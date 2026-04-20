@@ -9,7 +9,7 @@ Go to the directory jira_analyzer/web/
   * ```npm install```
 
   * ```npm start```
->Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/
+https://go-yadro-group-1-web-ui-8bda.twc1.net
 
 ## Prerequisites
 
