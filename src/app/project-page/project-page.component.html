@@ -1,12 +1,4 @@
-<div *ngIf="loading" class="text-center p-4">
-  Загрузка...
-</div>
-
-<div *ngIf="error" class="text-red-500 text-center p-4">
-  Ошибка загрузки данных
-</div>
-
-<div class="flex justify-between items-center mb-4">
+<div class="flex justify-between items-center mb-[10px]">
   <h1 class="text-3xl font-semibold">Проекты</h1>
   <input
     type="text"
@@ -16,6 +8,14 @@
     [(ngModel)]="searchName"
     (keyup.enter)="getSearchProjects()"
   >
+</div>
+
+<div *ngIf="loading" class="text-center p-4">
+  Загрузка...
+</div>
+
+<div *ngIf="error" class="text-red-500 text-center p-4">
+  Ошибка загрузки данных
 </div>
 
 <table class="tbl" *ngIf="!error">
