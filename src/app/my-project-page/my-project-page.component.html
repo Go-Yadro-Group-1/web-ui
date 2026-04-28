@@ -1,15 +1,36 @@
-<h2 class="header">
-  Мои проекты
-</h2>
+<h1 class="text-3xl font-semibold mb-4">Мои проекты</h1>
 
-<p *ngIf="loading" class="text-center text-lg">Loading...</p>
+<div *ngIf="loading" class="text-center p-4">
+  Загрузка...
+</div>
+
+<div *ngIf="error" class="text-red-500 text-center p-4">
+  Ошибка загрузки данных
+</div>
+
+<table class="min-w-full border" *ngIf="!loading && !error && projects.length">
+  <thead>
+    <tr class="bg-gray-100">
+      <th class="p-2 border">Название</th>
+      <th class="p-2 border">Дата</th>
+      <th class="p-2 border">Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td class="p-2 border">{{ project.Name }}</td>
+      <td class="p-2 border">{{ project.date || '-' }}</td>
+      <td class="p-2 border">{{ project.status || '-' }}</td>
+    </tr>
+  </tbody>
+</table>
 
 <app-my-project *ngFor="let project of myProjects"
                 [myProject]="project">
 </app-my-project>
 
 <!--<app-modal-setting-project *ngIf="this.modalService.getProject().open"></app-modal-setting-project>-->
-<div class="body_empty" *ngIf="noProjects && inited">
+<div class="body_empty" *ngIf="!loading && !error && noProjects && inited">
   <p>Вы не выбрали ни одного проекта для аналитики</p>
   <div class="icon">
     <a href="http://localhost:4200/">

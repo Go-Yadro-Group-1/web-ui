@@ -9,23 +9,33 @@ import {CheckedProject} from "../models/check-element.model";
   styleUrls: ['./my-project-page.component.css']
 })
 export class MyProjectPageComponent implements OnInit {
+  projects: IProj[] = []
   myProjects: IProj[] = []
   checked: Map<any, any> = new Map();
   loading = false
+  error = false
   noProjects: boolean = false
   inited: boolean = false
 
   constructor(private myProjectService: DatabaseProjectServices) { }
 
   ngOnInit(): void {
+    this.loadProjects()
+  }
+
+  loadProjects() {
     this.loading = true
+    this.error = false
     this.myProjectService.getAll().subscribe(projects => {
       this.noProjects = projects.data.length == 0;
-      this.myProjects = projects.data
+      this.projects = projects.data
+      this.myProjects = this.projects
       this.loading = false
       this.inited = true
     }, error => {
-      // TODO Обработать ошибки от сервера
+      this.error = true
+      this.loading = false
+      this.inited = true
     })
   }
 

@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core'
 import {IProj} from "../../models/proj.model";
-import {ProjectServices} from "../../services/project.services";
 import {CheckedProject} from "../../models/check-element.model";
 
 @Component({
@@ -10,18 +9,17 @@ import {CheckedProject} from "../../models/check-element.model";
 })
 
 export class ProjectWithCheckboxComponent implements OnInit {
-  @Output() onChecked: EventEmitter<any> = new EventEmitter<{}>();
+  @Output() onChecked: EventEmitter<CheckedProject> = new EventEmitter<CheckedProject>();
   @Input() project: IProj
-  isChecked: Boolean;
+  isChecked = false;
 
-  constructor(private projectService: ProjectServices) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.isChecked = this.project.Existence;
+    this.isChecked = false;
   }
 
-  changed(isChecked: any) {
-    //console.log("Child", this.isChecked, this.project.Name)
+  changed() {
     this.onChecked.emit(new CheckedProject(this.project.Name, this.isChecked, this.project.Id));
   }
 }

@@ -11,35 +11,38 @@ import {PageInfo} from "../models/pageInfo.model";
 export class ProjectPageComponent implements OnInit {
   projects: IProj[] = []
   loading = false
+  error = false
   searchName = ''
-  pageInfo: PageInfo
   start_page = 1
+  pageInfo: PageInfo = new PageInfo(this.start_page, 0, 0)
 
   constructor(private projectService: ProjectServices) {
   }
 
   ngOnInit(): void {
+    this.loadProjects(this.start_page)
+  }
+
+  loadProjects(page: number) {
     this.loading = true
-    this.projectService.getAll(this.start_page, this.searchName).subscribe(projects => {
+    this.error = false
+    this.projectService.getAll(page, this.searchName).subscribe(projects => {
       this.projects = projects.data
       this.loading = false
       this.pageInfo = projects.pageInfo
     },
       error => {
-        // TODO Обработать ошибки от сервера
+        this.error = true
+        this.loading = false
       })
   }
 
   gty(page: any){
-    this.projectService.getAll(page, this.searchName).subscribe(projects => {
-      this.projects = projects.data
-      this.pageInfo = projects.pageInfo
-      this.loading = false
-    })
+    this.loadProjects(page)
   }
 
   getSearchProjects() {
-    this.pageInfo.currentPage = this.start_page;
-    this.gty(this.pageInfo.currentPage);
+    this.pageInfo.currentPage = this.start_page
+    this.loadProjects(this.pageInfo.currentPage)
   }
 }

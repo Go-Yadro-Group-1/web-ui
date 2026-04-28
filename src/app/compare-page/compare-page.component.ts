@@ -13,7 +13,10 @@ import {ConfigurationService} from "../services/configuration.services";
 })
 export class ComparePageComponent implements OnInit {
   projects: IProj[] = []
+  selectedProjects: any[] = []
   checked: Map<any, any> = new Map();
+  loading = false
+  error = false
   noProjects: boolean = false
   inited: boolean = false
 
@@ -24,15 +27,45 @@ export class ComparePageComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.loadProjects()
+  }
+
+  loadProjects() {
+    this.loading = true
+    this.error = false
     this.myProjectService.getAll().subscribe(projects => {
       this.noProjects = projects.data.length == 0;
       console.log(projects)
       this.projects = projects.data
+      this.selectedProjects = []
+      this.checked.clear()
+      this.loading = false
       this.inited = true
     },
       error => {
-        // TODO Обработать ошибки от сервера
+        this.error = true
+        this.loading = false
+        this.inited = true
       })
+  }
+
+  onProjectToggle(project: any, checked: boolean) {
+    if (checked) {
+      if (!this.selectedProjects.includes(project)) {
+        this.selectedProjects.push(project);
+      }
+      this.checked.set(project.Name, project.Id)
+    } else {
+      this.selectedProjects = this.selectedProjects.filter(p => p !== project);
+      if (this.checked.has(project.Name)){
+        this.checked.delete(project.Name)
+      }
+    }
+  }
+
+  compare() {
+    console.log('Compare:', this.selectedProjects);
+    this.onClickCompare()
   }
 
   onClickCompare(): void {
