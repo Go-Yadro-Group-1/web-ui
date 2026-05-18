@@ -1,0 +1,13 @@
+name: web-ui
+
+services:
+  web-ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: web-ui:latest
+    ports:
+      - "127.0.0.1:4200:80"
+    volumes:
+      - ./docker/config.json:/usr/share/nginx/html/assets/config.json:ro
+    restart: unless-stopped
