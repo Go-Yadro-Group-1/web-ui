@@ -22,16 +22,19 @@ p {
 }
 
 table{
+  width: 100%;
   margin-top: 20px;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-collapse: collapse;
 }
 
 .body {
-  margin-left: 12rem;
+  padding: 0 20px;
 }
 
 .header {
   font-weight: 600;
   font-size: 1.2em;
+  margin-bottom: 20px;
 }

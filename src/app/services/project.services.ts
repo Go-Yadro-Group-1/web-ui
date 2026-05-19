@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IRequest} from "../models/request.model";
 import {ConfigurationService} from "./configuration.services";
@@ -14,19 +14,26 @@ export class ProjectServices {
     this.urlPath = configurationService.getValue("pathUrl")
   }
 
+  private get apiUrl(): string {
+    return this.urlPath.startsWith("http") ? this.urlPath : `http://${this.urlPath}`
+  }
 
-  // @ts-ignore
   getAll(page: number, searchName: String): Observable<IRequest>{
-    // TODO Написать запрос на получение всех проектов, учесть пагинацию, поиск
+    const params = new HttpParams()
+      .set("limit", "10")
+      .set("page", page)
+      .set("search", searchName.toString())
+
+    return this.http.get<IRequest>(`${this.apiUrl}/api/v1/connector/projects`, { params })
   }
 
-  // @ts-ignore
   addProject(key: String): Observable<IRequest>{
-    // TODO Написать запрос на добавление проета в БД. Добавление происходит по ключу проекта
+    const params = new HttpParams().set("project", key.toString())
+
+    return this.http.post<IRequest>(`${this.apiUrl}/api/v1/connector/updateProject`, null, { params })
   }
 
-  // @ts-ignore
   deleteProject(id: Number): Observable<IRequest> {
-    // TODO Написать запрос на удаление проекта. Удаление происходит по id проекта в БД.
+    return this.http.delete<IRequest>(`${this.apiUrl}/api/v1/projects/${id}`)
   }
 }

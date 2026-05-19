@@ -1,22 +1,24 @@
-<p *ngIf="loading" class="text-center text-lg">Loading...</p>
-
-<div class="wrapper">
-<h2 class="header">
-  Проекты
-</h2>
-
-<div class="d2">
-  <input placeholder="Поиск по странице..."
-         id="search-project"
-         type="text"
-         class="validate"
-         [(ngModel)]="searchName"
-         (keyup.enter)="getSearchProjects()"
+<div class="flex justify-between items-center mb-[10px]">
+  <h1 class="text-3xl font-semibold">Проекты</h1>
+  <input
+    type="text"
+    placeholder="Поиск..."
+    class="border rounded px-3 py-2"
+    id="search-project"
+    [(ngModel)]="searchName"
+    (keyup.enter)="getSearchProjects()"
   >
 </div>
+
+<div *ngIf="loading" class="text-center p-4">
+  Загрузка...
 </div>
 
-<table class="tbl">
+<div *ngIf="error" class="text-red-500 text-center p-4">
+  Ошибка загрузки данных
+</div>
+
+<table class="tbl" *ngIf="!error">
   <thead>
   <tr>
     <th class="th1">Название</th>
@@ -35,5 +37,6 @@
 </app-project>
 <br>
 <pagination-controls
+  *ngIf="!error"
   (pageChange)="gty((pageInfo.currentPage = $event))">
 </pagination-controls>

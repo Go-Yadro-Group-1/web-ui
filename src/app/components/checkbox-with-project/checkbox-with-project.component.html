@@ -1,3 +1,9 @@
-<input type="checkbox" [(ngModel)]="isChecked" (change)="changed($event)">
-<label> {{project.Name}} </label>
-<br>
+<label class="flex items-center gap-2 mb-2">
+  <input
+    type="checkbox"
+    class="h-4 w-4"
+    [(ngModel)]="isChecked"
+    (change)="changed()"
+  >
+  <span>{{project.Name}}</span>
+</label>
